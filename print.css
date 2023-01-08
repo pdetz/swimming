@@ -1,0 +1,129 @@
+@media print {
+
+    :root {
+        background:none;
+    }
+
+    .topbar {
+        display:none;
+    }
+
+    .column {
+        width: 100%;
+        padding: 0;
+        height: auto;
+        float:none;
+    }
+
+    .column.left {
+        padding: 0;
+        page-break-after: always;
+    }
+
+    .frame {
+        display: block;
+        padding: 0;
+        margin: 0;
+        background: #fff;
+        color: #000;
+        width: 100%;
+    }
+
+    .column::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .column::-webkit-scrollbar-thumb {
+        display: none;
+    }
+
+    .schedule tr:first-child {
+        color:#fff;
+    }
+    
+    .lineup th, td {
+        position: relative;
+        font-size: 0.8rem;
+        border: 1px solid #fff;
+        width:8.5rem;
+        text-align:center;
+        padding: 0;
+    }
+
+    .schedule tr:first-child th {
+        color:#fff;
+    }
+    .schedule tr:first-child td {
+        color:#fff;
+    }
+
+    .schedule button{
+        padding: 2px 0;
+        line-height: 1.2em;
+    }
+
+    div.lineup {
+        page-break-inside: avoid;
+        margin-bottom: 1em;
+    }
+
+    .schedule tr:first-child {
+        color:#fff;
+    }
+
+    .schedule.specials0 {
+        background: #fff;
+    }
+
+    .schedule.grade0 {
+        background: #fff;
+    }
+
+    #copyright {
+        display:none;
+    }
+
+    .noprint{
+        display: none;
+    }
+
+    button.new {
+        display:none;
+    }
+
+    button.eventTitle {
+        display:none;
+    }
+    button.eventTitle.sel{
+        background-color: transparent;
+        margin: 0;
+    }
+    button.lane.name {
+        background-color: #fff;
+        color:#000;
+    }
+    button.eventTitle.sel.strokeName{
+        display:inline;
+    }
+    div.empty{
+        color:#fff;
+        width: 140pt;
+        border-bottom: 1px solid black;
+    }
+    div.heat{
+        page-break-inside: avoid;
+    }
+    div.laneSheet{
+        page-break-before: always;
+    }
+    div.timers.event{
+        page-break-inside: avoid;
+    }
+    div.editor{
+        float:none;
+    }
+    div.builder{
+        page-break-inside: avoid;
+    }
+    
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id="head">
+    <meta charset="UTF-8">
+    <title id="pageTitle">ViSwim</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="lineups.css">
+    <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="print.css">
+
+
+    <link rel="icon" href="favicon.png">
+</head>
+
+<body id="body">
+    <div class="left column">
+        <div class="displayArea">
+            <div id="leftbar" class="topbar">
+            </div>
+            <div id="left" class="frame">
+                <div id="like_button_container"></div>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="displayArea">
+            <div id="rightbar" class="topbar">
+
+            </div>
+            <div id="right" class="frame">
+            </div>
+            <div id = "copyright">© 2023 Patrick Detzner</div>
+        </div>
+    </div>
+    <div class="modal" id="modal">
+        <div class="modal_box" id="modal_box">
+            <button id="close_modal" class="inv close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+            <div id="modal_content"></div>
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  
+    <!-- Load our React component. -->
+    <script src="like_button.js"></script>
+</body>
+</html>

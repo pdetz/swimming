@@ -1,0 +1,79 @@
+button {
+    border-radius: 0.3em;
+    background-color: #def;
+}
+button:hover {
+    background-color: #8cf;
+}
+
+button.tools {
+    min-width: 50px;
+    border:none;
+}
+
+button.tools:hover {
+    color:#fff;
+    background-color: #000;
+}
+
+button.menu{
+    border-radius: 0.3em;
+    background: none;
+    margin: 0 4px;
+}
+
+button.menu svg {
+    fill:#fff;
+    width: 24pt;
+}
+
+button.menu:hover svg {
+    fill: #6af;
+}
+
+button.top {
+    min-width: 30pt;
+    font-size: 12pt;
+    font-weight: bold;
+    margin: 0 4px;
+    padding: 1px 2px 0px 2px;
+    border-radius: 0.3em;
+    background: #fff;
+}
+
+button.top:hover {
+    background: #8cf;
+}
+
+button.sel {
+    background: #6af;
+}
+
+button.bolt {
+    height:12pt;
+    font-size:8pt;
+    vertical-align: center;
+    width: 100%;
+    background-color: transparent;
+}
+
+button.bolt svg {
+    display: none;
+}
+
+button.bolt:hover{ 
+    background:#00b; 
+    color:#aff;
+}
+
+button.bolt:hover svg{
+    fill: #aff;
+}
+
+button.bolt:active{ 
+    background:#00f; 
+    color:#fff;
+}
+button.bolt.entry svg{
+    display: inline;
+}

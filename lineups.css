@@ -1,0 +1,94 @@
+table.lineup { 
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", "DejaVu Sans", sans-serif;
+    text-rendering: optimizeLegibility;
+    font-size: 13px;
+    padding: 0; 
+    margin: 2px auto; 
+    background: none; 
+    border:none; 
+    position:relative; 
+    border-collapse: collapse; 
+    border-spacing:0;
+}
+
+table.lineup td {
+    position:relative; 
+    padding: 0; 
+    margin:0; 
+    border:1px solid white; 
+    border-collapse: collapse; 
+    vertical-align: center; 
+    background:none;
+    color: #000;
+    width: 32px;
+}
+
+table.lineup td:nth-child(1){
+    width: 195px;
+    padding: 0 2px;
+    text-align: left;
+}
+
+table.roster.lineup td:nth-child(1){
+    width: inherit;
+}
+
+table.lineup td.events{
+    font-style:italic;
+}
+table.lineup td.events:first-child{
+    text-align:right;
+}
+
+.absent{
+    font-style: italic;
+    color:#aaa;
+}
+
+div.lineup div{
+    vertical-align:top;
+}
+
+div.title {
+    font-weight:bold;
+    margin: 0 0 4px 0;
+}
+
+div.description{
+    margin: 4px;
+}
+
+div.half {
+    width:50%;
+    display: inline-block;
+
+}
+
+table.lineup tr:nth-child(odd) {background:#def}
+table.lineup tr:nth-child(1) {
+    background:#6af;
+    font-weight:bold;
+}
+
+
+.noswim svg {fill:#000; }
+
+.noswim:hover svg {fill:#57f; }
+
+.noswim:active svg {fill:#00b;}
+
+.swim svg {fill:#aff; opacity:0; }
+
+.swim:hover svg {fill:#aff; opacity:1; }
+
+.swim:active svg {fill:#fff; opacity:1; }
+
+.swimmer-title svg {height:30px; width:30px; transform:translateY(6px)}
+
+html .psych tr:nth-child(3) {background:#8af}
+html .psych tr:nth-child(4) {background:#f88}
+html .psych tr:nth-child(5) {background:#fff}
+html .psych tr:nth-child(6) {background:#ff0}
+html .psych tr:nth-child(7) {background:#fce}
+
+html .toptimes tr:nth-child(6n) {background:#ff0}
