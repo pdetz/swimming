@@ -1,51 +1,50 @@
 body {
     font: 14px "Century Gothic", Futura, sans-serif;
     margin: 20px;
+    background-color: black;
+    color:#ddd;
   }
   
-  ol, ul {
-    padding-left: 30px;
-  }
-  
-  .board-row:after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-  
-  .status {
-    margin-bottom: 10px;
-  }
-  
-  .square {
-    background: #ccf;
-    border: 1px solid #999;
-    float: left;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 34px;
-    height: 34px;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
-    text-align: center;
-    width: 34px;
-  }
-  
-  .square:focus {
-    outline: none;
-  }
-  
-  .kbd-navigation .square:focus {
-    background: #ddd;
-  }
-  
-  .game {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .game-info {
-    margin-left: 20px;
-  }
-  
+
+  table { 
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", "DejaVu Sans", sans-serif;
+    text-rendering: optimizeLegibility;
+    font-size: 13px;
+    padding: 0; 
+    margin: 2px auto; 
+    background: #fff; 
+    border:none; 
+    position:relative; 
+    border-collapse: collapse; 
+    border-spacing:0;
+}
+
+table td {
+    position:relative; 
+    padding: 0 2px; 
+    margin:0; 
+    border:1px solid #fff; 
+    border-collapse: collapse; 
+    vertical-align: center; 
+    background:none;
+    color: #000;
+}
+
+table.lineup td:nth-child(1){
+    width: 192px;
+    padding: 0 2px;
+    text-align: left;
+}
+
+table tr:nth-child(even) {background:#def}
+table th {
+    background:#6af;
+    border:1px solid #fff; 
+    font-weight:bold;
+    color: black;
+    padding: 0 4px;
+}
+
+tr.sel td{
+    background: #6af
+}
