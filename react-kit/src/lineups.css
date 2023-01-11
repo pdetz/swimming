@@ -1,0 +1,8 @@
+.twoCols {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  .col {
+    padding: 0.5rem;
+  }
