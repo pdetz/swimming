@@ -1,4 +1,6 @@
-function Graphs({ selectedAthletes }) {
+function Graphs({ selectedAthletes, times }) {
+
+    console.log(times);
 
     return (
         <div className="graphs">
@@ -7,6 +9,7 @@ function Graphs({ selectedAthletes }) {
             ))}
         </div>
     );
+
 }
 
 export default Graphs;

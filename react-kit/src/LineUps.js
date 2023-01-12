@@ -49,7 +49,7 @@ function RosterTable(props) {
             data-key={athlete.AthleteRegistrationNumber}
             className={selectedAthletes.includes(athlete.AthleteRegistrationNumber) ? 'sel' : ''}
           >
-            <td>{athlete.AthleteLastName}, {athlete.AthleteFirstName} {athlete.AthleteAge}</td>
+            <td>{athlete.AthleteDisplayName} {athlete.AthleteAge}</td>
           </tr>
         ))}
       </tbody>

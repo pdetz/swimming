@@ -3,12 +3,12 @@ import { useClick } from './CustomHooks';
 import LineUps from './LineUps';
 import useCSV from './FileReader';
 import Graphs from './Graphs';
-import { filterAthletes, diffAthletes } from './Helpers'
+import { filterAthletes, diffAthletes, createSwimObjects } from './Helpers'
 
 function App() {
   
   const athletes = useCSV("roster.csv");
-  const times = useCSV("times.csv");
+  const times = createSwimObjects(useCSV("times.csv"));
 
   const [selectedAthletes, setSelectedAthletes] = useState([]);
 
@@ -57,7 +57,7 @@ function App() {
             </div>
             
             <div id="right" className="frame">
-              <Graphs selectedAthletes={filterAthletes(athletes, selectedAthletes)}/>
+              <Graphs selectedAthletes={filterAthletes(athletes, selectedAthletes)} times={times}/>
             </div>
             <div id = "copyright">© 2023 Patrick Detzner</div>
         </div>
