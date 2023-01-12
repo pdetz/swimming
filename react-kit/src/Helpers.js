@@ -16,27 +16,37 @@ function diffAthletes(selectedAthletes, newAthletes) {
 
 function createSwimObjects(csvData) {
     const swimObjects = [];
+    let numberOfMeets = 0;
+    Object.keys(csvData[0]).forEach(property => {
+        if (property.startsWith("Meet")) {
+            const meetNumber = parseInt(property.replace("Meet", "").replace("-Name", ""));
+            if (meetNumber > numberOfMeets) {
+                numberOfMeets = meetNumber;
+            }
+        }
+    });
     csvData.forEach(row => {
-        for (let i = 1; i <= 15; i++) {
+        for (let i = 1; i <= numberOfMeets; i++) {
             const meet = `Meet${i}-Name`;
             const result = `Meet${i}-Result`;
             const resultSec = `Meet${i}-ResultSec`;
             const date = `Meet${i}-Date`;
-            if (row[meet] && row[result] && row[resultSec] && row[date]) {
+            if (row[resultSec] && row[meet] && row[result] && row[date]) {
                 swimObjects.push({
                     time: row[resultSec],
                     athleteID: row.AthleteId,
                     athleteName: `${row.FirstName} ${row.LastName}`,
+                    eventDistance: row.EventDistance,
+                    eventStroke: row.EventStroke,
                     meet: row[meet],
                     date: row[date],
-                    eventDistance: row.EventDistance,
-                    eventStroke: row.EventStroke
                 });
             }
         }
     });
     return swimObjects;
 }
+
 
 
 export { filterAthletes, diffAthletes, createSwimObjects }

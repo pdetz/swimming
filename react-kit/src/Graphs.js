@@ -1,6 +1,5 @@
 function Graphs({ selectedAthletes, times }) {
 
-    console.log(times);
 
     return (
         <div className="graphs">

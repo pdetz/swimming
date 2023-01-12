@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useClick } from './CustomHooks';
 import LineUps from './LineUps';
-import useCSV from './FileReader';
+import {useFetchCSV } from './FileReader';
 import Graphs from './Graphs';
 import { filterAthletes, diffAthletes, createSwimObjects } from './Helpers'
 
 function App() {
-  
-  const athletes = useCSV("roster.csv");
-  const times = createSwimObjects(useCSV("times.csv"));
+  const [athletes, setAthletes, areAthletesLoading] = useFetchCSV("roster.csv");
+  const [times, setTimes, areTimesLoading] = useFetchCSV("times.csv", createSwimObjects);
+
+
+
+
 
   const [selectedAthletes, setSelectedAthletes] = useState([]);
-
-  console.log("selected", selectedAthletes);
+  //console.log(athletes, times);
 
   function handleLineUpsClick(e) {
-    console.log(e.target.tagName);
     let newAthletes = [];
     if(e.target.tagName === "TD"){
         let swimmerID = e.target.closest('tr').dataset.key;//.getAttribute("key");
@@ -31,7 +32,6 @@ function App() {
       });
     }
     setSelectedAthletes(diffAthletes(selectedAthletes, newAthletes));
-    console.log(selectedAthletes);
   }
 
   useClick("#lineups", handleLineUpsClick);
