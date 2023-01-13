@@ -1,4 +1,5 @@
 //import React, { useState, useEffect } from 'react';
+import { fltr } from './Helpers'
 
 function LineUps({ athletes, selectedAthletes, times }) {
 
@@ -9,7 +10,7 @@ function LineUps({ athletes, selectedAthletes, times }) {
 
 const tables =  ageGroups.map(ag => (
     <div className="col" key={ag}>
-      <RosterTable groupName={ag} athletes={athletes} filters={{ ageGroup: ag }} selectedAthletes={selectedAthletes}/>
+      <RosterTable groupName={ag} athletes={fltr(athletes, { ageGroup: ag })} selectedAthletes={selectedAthletes}/>
     </div>
   ));
 
@@ -24,7 +25,8 @@ function RosterTable(props) {
   const { groupName, athletes, filters, selectedAthletes } = props;
 
   // Filter the athletes based on the filters prop
-  const filteredAthletes = athletes.filter(athlete => {
+
+  const filteredAthletes = athletes;/* propFilter(athletes, filters);/*athletes.filter(athlete => {
     for (const [key, value] of Object.entries(filters)) {
       if (athlete[key] !== value) {
         return false;
@@ -32,7 +34,7 @@ function RosterTable(props) {
     }
     return true;
   });
-
+*/
   const n = filteredAthletes.length;
 
   return (
@@ -49,7 +51,7 @@ function RosterTable(props) {
             data-key={athlete.ID}
             className={selectedAthletes.includes(athlete.ID) ? 'sel' : ''}
           >
-            <td>{athlete.displayName}, {athlete.firstName} {athlete.age}</td>
+            <td>{athlete.displayName} {athlete.age}</td>
           </tr>
         ))}
       </tbody>

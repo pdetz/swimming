@@ -1,8 +1,18 @@
+import { findAllByTestId } from "@testing-library/react";
 
 function filterAthletes(athletes, ids) {
     const set = new Set(ids);
     return athletes.filter(athlete => set.has(athlete.ID)).sort((a, b) => 
         a.lastName.localeCompare(b.lastName));;
+}
+
+function fltr(arr, filters) {
+    return arr.filter(a => {
+        for (const [key, value] of Object.entries(filters)) {
+           if (a[key] !== value) return false;
+        }
+        return true;
+    });
 }
 
 function diffAthletes(selectedAthletes, newAthletes) {
@@ -48,4 +58,4 @@ function createSwimObjects(csvData) {
     return swimObjects;
 }
 
-export { filterAthletes, diffAthletes, createSwimObjects }
+export { filterAthletes, diffAthletes, createSwimObjects, fltr }
