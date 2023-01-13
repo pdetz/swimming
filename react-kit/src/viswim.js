@@ -4,17 +4,17 @@ import LineUps from './LineUps';
 import {useFetchCSV } from './FileReader';
 import Graphs from './Graphs';
 import { filterAthletes, diffAthletes, createSwimObjects } from './Helpers'
-
-function App() {
-  const [athletes, setAthletes, areAthletesLoading] = useFetchCSV("roster.csv");
-  const [times, setTimes, areTimesLoading] = useFetchCSV("times.csv", createSwimObjects);
+import { fixAthleteData, fixTimeData, useUpdateIds } from './DataCleaners'
 
 
-
+export default function App() {
+  const [athletes, setAthletes, areAthletesLoading] = useFetchCSV("roster.csv", fixAthleteData);
+  const [rawTimes, setRawTimes, areRawTimesLoading] = useFetchCSV("times.csv", fixTimeData);
+  const [times, setTimes] = useUpdateIds(rawTimes, athletes);
 
 
   const [selectedAthletes, setSelectedAthletes] = useState([]);
-  //console.log(athletes, times);
+  console.log(athletes, times);
 
   function handleLineUpsClick(e) {
     let newAthletes = [];
@@ -64,5 +64,3 @@ function App() {
     </div>
   </div>);
 }
-
-export default App;

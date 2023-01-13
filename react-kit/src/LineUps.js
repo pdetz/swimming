@@ -9,7 +9,7 @@ function LineUps({ athletes, selectedAthletes, times }) {
 
 const tables =  ageGroups.map(ag => (
     <div className="col" key={ag}>
-      <RosterTable groupName={ag} athletes={athletes} filters={{ AgeGroup: ag }} selectedAthletes={selectedAthletes}/>
+      <RosterTable groupName={ag} athletes={athletes} filters={{ ageGroup: ag }} selectedAthletes={selectedAthletes}/>
     </div>
   ));
 
@@ -45,11 +45,11 @@ function RosterTable(props) {
       <tbody>
         {filteredAthletes.map((athlete, idx) => (
           <tr
-            key={athlete.AthleteRegistrationNumber}
-            data-key={athlete.AthleteRegistrationNumber}
-            className={selectedAthletes.includes(athlete.AthleteRegistrationNumber) ? 'sel' : ''}
+            key={athlete.ID}
+            data-key={athlete.ID}
+            className={selectedAthletes.includes(athlete.ID) ? 'sel' : ''}
           >
-            <td>{athlete.AthleteDisplayName} {athlete.AthleteAge}</td>
+            <td>{athlete.displayName}, {athlete.firstName} {athlete.age}</td>
           </tr>
         ))}
       </tbody>
