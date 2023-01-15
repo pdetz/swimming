@@ -21,31 +21,16 @@ const tables =  ageGroups.map(ag => (
   );
 }
 
-function RosterTable(props) {
-  const { groupName, athletes, filters, selectedAthletes } = props;
-
-  // Filter the athletes based on the filters prop
-
-  const filteredAthletes = athletes;/* propFilter(athletes, filters);/*athletes.filter(athlete => {
-    for (const [key, value] of Object.entries(filters)) {
-      if (athlete[key] !== value) {
-        return false;
-      }
-    }
-    return true;
-  });
-*/
-  const n = filteredAthletes.length;
-
+function RosterTable({ groupName, athletes, selectedAthletes }) {
   return (
     <table className="lineup" >
       <thead>
         <tr>
-          <th>{groupName} <span style={{fontWeight:"normal"}}> ({n})</span></th>
+          <th>{groupName} <span style={{fontWeight:"normal"}}> ({athletes.length})</span></th>
         </tr>
       </thead>
       <tbody>
-        {filteredAthletes.map((athlete, idx) => (
+        {athletes.map((athlete, idx) => (
           <tr
             key={athlete.ID}
             data-key={athlete.ID}

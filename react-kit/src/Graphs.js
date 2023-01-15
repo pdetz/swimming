@@ -1,13 +1,21 @@
 import { fltr } from './Helpers'
+import { SwimChart } from './Charts'
 
 function Graphs({ selectedAthletes, times }) {
 
-    const strokes = ["Free", "Back", "Fly", "IM"];
+    const strokes = ["Free", "Back", "Breast", "Fly", "IM"];
     const timesList = selectedAthletes.map(athlete => ( 
         <div>
             {athlete.displayName}
-            <TimeList times = {fltr(times, {ID: athlete.ID})}/>
-        </div>
+            <div className="twoCols">
+            {strokes.map(stroke => (
+              <div>
+                <SwimChart times = {fltr(times, {ID: athlete.ID, eventStroke: stroke})}/>
+                <TimeList times = {fltr(times, {ID: athlete.ID, eventStroke: stroke})}/>
+              </div>
+            ))}
+            </div>
+             </div>
         )
     );
 
@@ -20,28 +28,35 @@ function Graphs({ selectedAthletes, times }) {
 }
 
 function TimeList({times}){
-
-    times.forEach(time => {
-        console.log(time.times);
-    });
-
-    const timesList = times.map(time => ( 
-        <div>
-            {time.eventStroke} - 
-                    {time.times.map(t => (
-                        <span> {t.time} </span>    
-                    ))}
-        </div>
-    ));
-
-    console.log(timesList);
-
+    console.log(times);
     return (
-        <div>
-            {timesList}
-        </div>
+    <div className="col">
+    {times.map((t, idx) => (
+    <table key={idx} className="lineup">
+        <thead>
+          <tr>
+            <th>{t.eventDistance} {t.eventStroke}</th>
+            <th>Date</th>
+            <th>Meet</th>
+          </tr>
+        </thead>
+        <tbody>
+            {t.times.map( (ti, idx) => (
+                <tr
+                /*key={athlete.ID}
+                data-key={athlete.ID}
+                className={selectedAthletes.includes(athlete.ID) ? 'sel' : ''}*/
+              >
+                  <td>{ti.time}</td>
+                  <td>{ti.date}</td>
+                  <td>{ti.meet}</td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+    ))}
+    </div>
     );
-}
-
+  }
 
 export default Graphs;
