@@ -1,5 +1,5 @@
 import { fltr } from './Helpers'
-import { SwimChart } from './Charts'
+import { SwimChart, TestChart } from './Charts'
 
 function Graphs({ selectedAthletes, times }) {
 
@@ -10,7 +10,8 @@ function Graphs({ selectedAthletes, times }) {
             <div className="twoCols">
             {strokes.map(stroke => (
               <div>
-                <SwimChart times = {fltr(times, {ID: athlete.ID, eventStroke: stroke})}/>
+                <SwimChart times = {fltr(times, {ID: athlete.ID, eventStroke: stroke})}
+                    chartTitle =  {`${athlete.displayName} - ${stroke}`}/>
                 <TimeList times = {fltr(times, {ID: athlete.ID, eventStroke: stroke})}/>
               </div>
             ))}
@@ -28,7 +29,7 @@ function Graphs({ selectedAthletes, times }) {
 }
 
 function TimeList({times}){
-    console.log(times);
+    //console.log(times);
     return (
     <div className="col">
     {times.map((t, idx) => (
@@ -48,7 +49,7 @@ function TimeList({times}){
                 className={selectedAthletes.includes(athlete.ID) ? 'sel' : ''}*/
               >
                   <td>{ti.time}</td>
-                  <td>{ti.date}</td>
+                  <td>{ti.date.toDateString()}</td>
                   <td>{ti.meet}</td>
               </tr>
             ))}

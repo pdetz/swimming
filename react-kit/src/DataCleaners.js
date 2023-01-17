@@ -70,8 +70,8 @@ function fixTimeData(csvData) {
             let t = row[`Meet${i}-ResultSec`]
             if (t !== "") {
                 times.push({
-                    time: t,
-                    date: row[`Meet${i}-Date`],
+                    time: parseFloat(t),
+                    date: new Date(row[`Meet${i}-Date`]),
                     meet: row[`Meet${i}-Name`]
                 });
             }
